@@ -6,8 +6,12 @@ source as (
 
 ),
 
-renamed as (
+categories as (
 
+    select * from {{ source('dbt_project', 'product_category_name_translation') }}
+),
+
+renamed as (
     select
         CAST(p._line AS INT64) as _line,
         CAST(p._fivetran_synced AS TIMESTAMP) as _fivetran_synced,
@@ -23,7 +27,7 @@ renamed as (
     from source p
     left join categories c
     on p.product_category_name = c.product_category_name
-    
+
 )
 
 select * from renamed

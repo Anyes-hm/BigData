@@ -1,6 +1,4 @@
-with 
-
-source as (
+with source as (
 
     select * from {{ source('dbt_project', 'product_category_name_translation') }}
 
