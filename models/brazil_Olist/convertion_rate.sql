@@ -6,5 +6,5 @@ WITH conversion_data AS (
 SELECT
     qualified_leads,
     closed_deals,
-    (closed_deals * 100.0) / qualified_leads AS conversion_rate
+    (closed_deals *100) / qualified_leads AS conversion_rate
 FROM conversion_data
